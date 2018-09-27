@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title> Form</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <link rel="stylesheet" href="style.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body background="hee.jpg">
-
 <div class="container">
   <h2 align="center">Registration Form </h2>
-  <form >
+  <form #userForm="ngForm" (ngSubmit)="OnSubmit(userForm.value)">
 
     <div class="form-group">
       <label>Name </label>
-      <input type="name" class="form-control" id="idname" placeholder="Enter you name" name="na">
+      <input type="name" required #nameRef="ngModel" class="form-control" id="idname" placeholder="Enter you name"  name="na" ngModel minlength="2" maxlength="30"/>
+      
     </div>
 
     <div class="form-group">
       <label>Email:</label>
-      <input class="form-control" id="email" placeholder="Enter email" name="email">
+      <input type ="email" required  class="form-control" id="email" placeholder="Enter email"  name="email" ngModel/>
     </div>
 
     <div class="form-group">
       <label>Age</label>
-      <input type="date" class="form-control" id="idage" placeholder="Enter your age" name="age" max ="2018-09-27" >
+      <input type="date" required  class="form-control" id="idage" placeholder="Enter your age"  name="age" max ="2018-09-27" ngModel />
     </div>
     
     <div class="form-group">
       <label>Phone no.</label>
-      <input type="tel" class="form-control" id="pno" placeholder="Enter your phone number" name="phono">
+      <input type="tel" required  class="form-control" id="pno" placeholder="Enter your phone number"  name="phono" ngModel/>
     </div>
 
     
-    <button type="submit" class="btn btn-default">Submit 
-    </button>
+    <button type="submit" class="btn btn-default">Submit </button>
     
   </form>
 </div>
 
-</body>
-</html>
+
+
